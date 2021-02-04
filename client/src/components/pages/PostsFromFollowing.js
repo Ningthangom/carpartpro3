@@ -10,7 +10,7 @@ const Home = () => {
     const [data,setData] = useState([ ])
 
     //state has login user details
-    const {state,dispatch} = useContext(UserContext)
+    const {state} = useContext(UserContext)
     console.log("this is for user checking for interested array", state)
 
     useEffect(() => {

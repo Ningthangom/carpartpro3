@@ -14,7 +14,6 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ningthangom/car.git"
@@ -27,6 +26,7 @@
   "homepage": "https://github.com/Ningthangom/car#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
