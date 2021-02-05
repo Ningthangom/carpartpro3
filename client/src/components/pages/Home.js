@@ -28,7 +28,7 @@ const Home = () => {
             // console.log(result.posts)
         })
         // this emty array will stop the app from updating itself 
-    },[])
+    },[data])
 
     const interestedPost = (id)=> {
         fetch('/interested',{
@@ -109,16 +109,15 @@ const Home = () => {
                     <div className="card home-card" key={item._id}>
                             <h5 style={{padding:"8px"}}>
                                 <titlePosts />
-                            {/* <img alt = ""  src={item.postedBy.pic} 
+                         <img alt = ""  src={item.postedBy.pic} 
                                  style= {{width:"40px", height: "40px",
                                                  borderRadius: "80px",
-                                                 margin:"", */}
-                                                 {/* /* position:"relative",
-                                                left:"50%" */}
-                                {/* /> */}
-                                {/* <Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile"}>
+                                                 margin:"", 
+                                                  }}
+                                 /> 
+                                 <Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile"}>
                               
-                                      {item.postedBy.name}</Link> */}
+                                      {item.postedBy.name}</Link>
                                                 {/* {item.postedBy._id === state._id
                                     && <i className="material-icons" style={{
                                         float:"right"

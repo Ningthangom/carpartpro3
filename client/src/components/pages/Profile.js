@@ -127,6 +127,7 @@ const Profile = () => {
                                                 <h8>${item.price}</h8>
                                                 <p>{item.body}</p>
                                             {/*  <input type="text" placeholder="add a comment"/> */}
+                                    
                                             
                                         </div>
                             </div>
