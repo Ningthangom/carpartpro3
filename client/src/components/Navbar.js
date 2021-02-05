@@ -4,12 +4,12 @@ import {Link,useHistory} from 'react-router-dom'
 import {UserContext } from '../App'
 const Navbar = () => {
   const {state,dispatch} = useContext(UserContext)
-  console.log("first state", state)
+  // console.log("first state", state)
   const history = useHistory()
   useEffect(() => {
     // Update the document title using the browser API
    /*  document.title = `You clicked ${count} times`; */
-   console.log(state)
+  //  console.log(state)
 
   },[state]);
   const renderList = () => {

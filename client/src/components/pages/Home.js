@@ -6,15 +6,13 @@ import {UserContext} from '../../App'
 import {Link} from 'react-router-dom'
 
 const Home = () => {
-
     const [data,setData] = useState([ ])
-    console.log("data before clicking likes", data)
-
+    // console.log("data before clicking likes", data)
     //state has login user details
     const {state} = useContext(UserContext)
-    console.log("this is for user checking for interested array", state)
+    // console.log("this state has current login user info", state)
 
-    useEffect(() => {
+    useEffect(() => { 
         fetch('/allpost', {
             headers:{
                 "Content-Type":"application/json",
@@ -22,12 +20,13 @@ const Home = () => {
             }
         }).then (res => res.json())
         .then(result => {
-         console.log(result) 
+        //  console.log(result) 
             // update data
             setData(result.posts)
+            // console.log(result.posts)
         })
         // this emty array will stop the app from updating itself 
-    },[])
+    },[data])
 
     const interestedPost = (id)=> {
         fetch('/interested',{
@@ -42,9 +41,16 @@ const Home = () => {
             })
         }).then(res=> res.json())
         .then(result=> {
+            const thisisresult = [result]
+            console.log(thisisresult)
          /*    console.log(result) */
                       // logic for number of  interested/uninterested 
+                      console.log(data)
+
                       const newData = data.map(item => {
+                          const thisisresult = [result]
+                          console.log(thisisresult)
+                        console.log("these are itmes", item)
                         if(item._id===result._id){
                             return result
                         }else {
@@ -87,46 +93,28 @@ const Home = () => {
             console.log(err)
         })
     }
-    const deletePost = (postid) => {
-        // console log will not show in dev tool for long as the page is reloaded 
-        // its believe to be due to onclick function
-        console.log("deletePost is firing")
-        fetch(`/deletepost/${postid}`,{
-            method: "delete",
-            headers: {
-                Authorization: "Bearer "+localStorage.getItem('jwt')
-            }
-        }).then(res=> res.json())
-        .then(result=> {
-            console.log(result)
-              const newData = data.filter(item=>{
-                return item._id !== result._id
-            })
-            setData(newData) 
-        }).catch(err=>{
-            console.log(err)
-        }) 
-}
+
     return (
       <div className="home">
           {
               data.map(item => {
-                  console.log(state)
-                  console.log("items from home",item)
-                  console.log(state._id)
-                  console.log(item.interested)
+                //   console.log("this is state after item ", state)
+                //   console.log("items from home",item)
+                //   console.log(state._id)
+                //   console.log(item.interested)
 
                 return(
                     <div className="card home-card" key={item._id}>
                             <h5 style={{padding:"8px"}}>
-                                <Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile"}>
-                                <img alt = ""  src={item?.postedBy?.pic}
+                            <img alt = ""  src={item.postedBy.pic} 
                                  style= {{width:"40px", height: "40px",
                                                  borderRadius: "80px",
                                                  margin:"",
                                                  /* position:"relative",
                                                 left:"50%" */}} 
                                 />
+                                <Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile"}>
+                              
                                       {item.postedBy.name}</Link>
                                                 {/* {item.postedBy._id === state._id
                                     && <i className="material-icons" style={{
@@ -164,7 +152,6 @@ const Home = () => {
                                                 
                                         >thumb_up</i>
                                     }
-                                   
                                     <h6>{item.interested.length} interested</h6>
                                     <h6>{item.title}</h6>
                                     <h8>${item.price}</h8>

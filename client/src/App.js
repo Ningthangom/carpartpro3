@@ -34,7 +34,7 @@ const Routing =() => {
             // if the user has account then direct it to home 
             // if not , direct it to login page
             if (user) {
-                  console.log("user detail",user)
+                  // console.log("user detail",user)
                   dispatch({type: "USER", payload:user})
                  /*  history.push('/') */
             }else {
