@@ -4,9 +4,11 @@ import React, {useState,useEffect,useContext} from 'react'
 import {UserContext} from '../../App'
 //  import link for making view profile of the account that posted that post
 import {Link} from 'react-router-dom'
+import titlePosts from './titilepost'
 
 const Home = () => {
     const [data,setData] = useState([ ])
+
     // console.log("data before clicking likes", data)
     //state has login user details
     const {state} = useContext(UserContext)
@@ -26,7 +28,7 @@ const Home = () => {
             // console.log(result.posts)
         })
         // this emty array will stop the app from updating itself 
-    },[data])
+    },[])
 
     const interestedPost = (id)=> {
         fetch('/interested',{
@@ -106,16 +108,17 @@ const Home = () => {
                 return(
                     <div className="card home-card" key={item._id}>
                             <h5 style={{padding:"8px"}}>
-                            <img alt = ""  src={item.postedBy.pic} 
+                                <titlePosts />
+                            {/* <img alt = ""  src={item.postedBy.pic} 
                                  style= {{width:"40px", height: "40px",
                                                  borderRadius: "80px",
-                                                 margin:"",
-                                                 /* position:"relative",
-                                                left:"50%" */}} 
-                                />
-                                <Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile"}>
+                                                 margin:"", */}
+                                                 {/* /* position:"relative",
+                                                left:"50%" */}
+                                {/* /> */}
+                                {/* <Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile"}>
                               
-                                      {item.postedBy.name}</Link>
+                                      {item.postedBy.name}</Link> */}
                                                 {/* {item.postedBy._id === state._id
                                     && <i className="material-icons" style={{
                                         float:"right"
