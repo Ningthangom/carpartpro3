@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom'
 const Home = () => {
 
     const [data,setData] = useState([ ])
+    console.log("data before clicking likes", data)
 
     //state has login user details
     const {state} = useContext(UserContext)
@@ -51,6 +52,8 @@ const Home = () => {
                         }
                    })
                    setData(newData)
+               /*     window.location.reload()   */
+                   console.log("this is new state when click likes", newData)
         }).catch(err=>{
             console.log(err)
         })
@@ -79,6 +82,7 @@ const Home = () => {
              }
         })
         setData(newData)
+        // window.location.reload()  
         }).catch(err=>{
             console.log(err)
         })
@@ -116,21 +120,23 @@ const Home = () => {
                     <div className="card home-card" key={item._id}>
                             <h5 style={{padding:"8px"}}>
                                 <Link to={item.postedBy._id !== state._id ? "/profile/"+item.postedBy._id : "/profile"}>
-                                <img alt = ""  src={item.postedBy.pic}
+                                <img alt = ""  src={item?.postedBy?.pic}
                                  style= {{width:"40px", height: "40px",
                                                  borderRadius: "80px",
                                                  margin:"",
                                                  /* position:"relative",
                                                 left:"50%" */}} 
                                 />
-                                    {item.postedBy.name}</Link>  {item.postedBy._id === state._id
-                            && <i className="material-icons" style={{
-                                float:"right"
+                                      {item.postedBy.name}</Link>
+                                                {/* {item.postedBy._id === state._id
+                                    && <i className="material-icons" style={{
+                                        float:"right"
 
-                            }}
-                            onClick={()=>deletePost(item._id)}
-                            >delete</i>
-                            } </h5>
+                                    }}
+                                    onClick={()=>deletePost(item._id)}
+                                    >delete</i>
+                                    }  */}
+                            </h5> 
                             <div className="card-mage">
                                 <img alt="" src ={item.image} 
                                 style= {{

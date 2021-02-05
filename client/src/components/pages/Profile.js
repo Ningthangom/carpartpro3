@@ -2,7 +2,7 @@ import React,{useEffect,useState,useContext} from 'react'
 import {UserContext} from '../../App'
 
 //  import link for making view profile of the account that posted that post
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 
 /* const deletePost = (postid) => {
@@ -63,6 +63,7 @@ const Profile = () => {
             maxWidth:"550px",
             margin:"0px auto"
              }}>
+                 
                 <div style= {{
                     display:"flex",
                     // ask how to move the tex to the left
@@ -78,8 +79,10 @@ const Profile = () => {
                                                  /* position:"relative",
                                                 left:"50%" */}} 
                                 />
+                                 
                         </div>
                         <div>
+                       
                             <h4>{state?state.name:"loading"}</h4>
                             <h6>{state?state.email:"loading"}</h6>
                             <div style ={{display:"flex",justifyContent:"space-between", width:"108%"}}>
@@ -89,6 +92,8 @@ const Profile = () => {
                             </div>
                             {/* <button className="btn waves-effect waves-light #2196f3 blue darken-1"
                          onClick={followUser}>follow</button> */}
+                         <button className="btn waves-effect waves-light #2196f3 blue darken-1" 
+                                >update profile</button>
                         </div>
                 </div>
                     <div className="home">

@@ -20,9 +20,9 @@ const Navbar = () => {
       // reuturn the array as more than one is needed as output
       return (
         <>
-        <li><Link to="/profile">Profile</Link></li>,
-        <li><Link to="/create">Create Post</Link></li>,
-        <li><Link to="/postsfromfollowing">Posts from Following</Link></li>,
+        <li><Link to="/profile">Profile</Link></li>
+        <li><Link to="/create">Create Post</Link></li>
+        <li><Link to="/postsfromfollowing">Posts from Following</Link></li>
         <li>
         <button className="btn waves-effect waves-light #2196f3 blue darken-1" onClick={()=>{
              localStorage.clear()
