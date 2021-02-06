@@ -129,7 +129,7 @@ const Home = () => {
                                 } } />
                             </div>
                             <div className="card-content">
-                                    <i className="material-icons" style={{color:"red"}}>favorite</i>
+                                  
                                   {/* dot includes is not working or it's not functioning */}
                                   {/* The ternary operator in React */}
                                     {item.interested.includes(state.id)

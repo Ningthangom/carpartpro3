@@ -20,6 +20,7 @@ Now, this is intended for selling car parts. However it can be altered  and used
 
 # Technologes used 
     - React
+    - materialize css
     - Cloudinary 
     - Nodejs
     - Express 

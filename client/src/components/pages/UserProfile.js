@@ -200,9 +200,9 @@ const Profile = () => {
                             <div className="card-content">
                                   {/*   <i className="material-icons" style={{color:"red"}}>favorite</i> */}
                                     <h6>{item.title}</h6>
-                                    <h7>${item.price}</h7>
+                                    <h6> {item.price}</h6>
                                     <p>{item.body}</p>
-
+                                    
                                     <a href="https://www.paypal.com/paypalme/ningthangom"> <button  className="btn waves-light #2196f3 blue" style={{
                                                     margin:"10px"
                                                 }}>buy</button></a>
